@@ -1,0 +1,22 @@
+Hidden Markov Model (HMM) Toolbox written by Kevin Murphy (1998).
+See http://www.ai.mit.edu/~murphyk/Software/hmm.html for details.
+This version was last updated on 23 October 2002.
+
+Code is provided as is - no support will be given.
+
+If you installed this in directory matlab/HMM, in Matlab type
+
+addpath matlab/HMM
+addpath matlab/HMM/netlab
+addpath matlab/HMM/Demos
+
+The following demonstration files are included.
+They do not produce any interesting output; they merely check
+the code runs without crashing. Please read the source code for
+details.
+
+- learn_dhmm_demo illustrates how to learn an HMM with discrete observations
+- learn_mhmm_demo illustrates how to learn an HMM with a mixture of Gaussians observations
+- fixed_lag_demo  illustrates how to do fixed lag smoothing
+- online_em_demo  illustrates how to combine fixed-lag smoothing and EM
+

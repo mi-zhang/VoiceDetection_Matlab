@@ -1,0 +1,16 @@
+
+NOTE: AIC score is used in this case.
+
+Results of Determining the Best Number of Components in GMM Model"
+
+(1) Number of Features = 3:
+- number of components for voiced = 
+- number of components for unvoiced = 
+
+(2) Number of Features = 4:
+- number of components for voiced = 
+- number of components for unvoiced = 
+
+(3) Number of Features = 5:
+- number of components for voiced = 
+- number of components for unvoiced = 
