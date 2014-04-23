@@ -22,7 +22,7 @@ function features_for_unvoiced_frames = load_android_features_speech_unvoiced_wa
 	% fVector[3] = spectral_entropy;
 	% fVector[4] = relSpecEntr;
 	% fVector[5] = energy;    
-    features = feature_array(:, [1,2,5]);
+    features = feature_array(:, [2,1,5]);
     
     % load true labels
     label_name = strcat(label_path, audio_file, '_final_label_array.txt');

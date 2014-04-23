@@ -21,7 +21,7 @@ function features = load_android_features_nonspeech_wav_reading (audio_file)
 	% fVector[3] = spectral_entropy;
 	% fVector[4] = relSpecEntr;
 	% fVector[5] = energy;    
-    features = feature_array(:, [1,2,5]);
+    features = feature_array(:, [2,1,5]);
     
     
     

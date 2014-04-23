@@ -257,7 +257,7 @@ function android_frame_feature_HMM_model_main_wav_reading ()
     speech_cov_inv_voiced = inv(speech_cov(:,:,2));
     denom_gauss_unvoiced = log(((2*pi)^(3/2))*(det(speech_cov(:,:,1))^0.5));
     denom_gauss_voiced = log(((2*pi)^(3/2))*(det(speech_cov(:,:,2))^0.5));
-    
+    log_transmat = log(transmat);
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Step#3: testing
