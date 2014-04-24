@@ -288,6 +288,14 @@ function android_frame_feature_HMM_model_main_wav_reading ()
     % Step#3: testing
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    
+    % save the results
+%     fName = 'android_performance_single_gaussian_HMM_wav_reading.txt';         
+%     fid = fopen(fName, 'a');            
+%     if fid ~= -1
+%         fprintf(fid,'%s\r\n', 'TPR, FPR, Accuracy, Precision, Recall');
+%         fclose(fid);                     
+%     end
+    
     % class 1: speech (voiced)
     android_frame_feature_HMM_model_test_wav_reading ('radio_t1', number_of_features);
     android_frame_feature_HMM_model_test_wav_reading ('speech_t2', number_of_features);
