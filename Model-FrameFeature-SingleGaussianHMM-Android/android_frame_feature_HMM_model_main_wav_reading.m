@@ -53,7 +53,13 @@ function android_frame_feature_HMM_model_main_wav_reading ()
     features_s7 = load_android_features_speech_wav_reading('speech_t2'); % right
     features_s8 = load_android_features_speech_wav_reading('speech_indoor_meeting_t2'); % right
     features_s9 = load_android_features_speech_wav_reading('speech_indoor_meeting_t3'); % right
-%     features_s10 = load_android_features_speech_wav_reading('radio_t1');
+    features_s10 = load_android_features_speech_wav_reading('speech_indoor_meeting_t4'); % right
+    features_s11 = load_android_features_speech_wav_reading('speech_indoor_meeting_t5'); % right
+    features_s12 = load_android_features_speech_wav_reading('speech_indoor_meeting_t6'); % right
+    features_s13 = load_android_features_speech_wav_reading('speech_indoor_meeting_t7'); % right
+    features_s14 = load_android_features_speech_wav_reading('speech_t3'); % right
+    features_s15 = load_android_features_speech_wav_reading('speech_t4'); % right
+    features_s16 = load_android_features_speech_wav_reading('radio_t1'); % right
                 
     % class 2: Speech (unvoiced) and Silence (LHL)   
     % - speech unvoiced
@@ -63,33 +69,39 @@ function android_frame_feature_HMM_model_main_wav_reading ()
     features_s4_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_outdoor_standing_t1');
     features_s5_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_outdoor_walking_t1'); 
     features_s6_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_outdoor_standing_t3');
-%     features_s6_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_t2');
-%     features_s7_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_indoor_meeting_t2');
-%     features_s8_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_indoor_meeting_t3');
+    features_s7_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_t2');
+    features_s8_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_indoor_meeting_t2');
+    features_s9_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_indoor_meeting_t3');
+    features_s10_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_indoor_meeting_t4');
+    features_s11_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_indoor_meeting_t5');
+    features_s12_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_indoor_meeting_t6');
+    features_s13_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_indoor_meeting_t7');
+    features_s14_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_t3');
+    features_s15_unvoiced = load_android_features_speech_unvoiced_wav_reading('speech_t4');
+    features_s16_unvoiced = load_android_features_speech_unvoiced_wav_reading('radio_t1');  
 
-%     features_s10_unvoiced = load_android_features_speech_unvoiced_wav_reading('radio_t1');    
     % - 'silent'
-    features_silent1 = load_android_features_nonspeech_wav_reading('silent_t1'); 
+    features_silent1 = load_android_features_nonspeech_wav_reading('silent_t1'); % right
     
     % class 3: Ambient (LLL)
     % - 'walk'
-    features_w1 = load_android_features_nonspeech_wav_reading('walk_t1');
+    features_w1 = load_android_features_nonspeech_wav_reading('walk_t1'); % right
     features_w2 = load_android_features_nonspeech_wav_reading('walk_t2');
     features_w3 = load_android_features_nonspeech_wav_reading('walk_t3');
-    features_w4 = load_android_features_nonspeech_wav_reading('walk_t4');
+    features_w4 = load_android_features_nonspeech_wav_reading('walk_t4'); % right
     features_w5 = load_android_features_nonspeech_wav_reading('walk_t5');    
     % - 'bus'
     features_b1 = load_android_features_nonspeech_wav_reading('bus_t1');
-    features_b2 = load_android_features_nonspeech_wav_reading('bus_t2');
-    features_b3 = load_android_features_nonspeech_wav_reading('bus_t3');
+%     features_b2 = load_android_features_nonspeech_wav_reading('bus_t2'); % this is broken !!!
+    features_b3 = load_android_features_nonspeech_wav_reading('bus_t3'); % right
     features_b4 = load_android_features_nonspeech_wav_reading('bus_t4');
     features_b5 = load_android_features_nonspeech_wav_reading('bus_t5');
     % - 'cafe'
     features_cafe1 = load_android_features_nonspeech_wav_reading('cafe_t1');
     features_cafe2 = load_android_features_nonspeech_wav_reading('cafe_t2');
-    features_cafe3 = load_android_features_nonspeech_wav_reading('cafe_t3');
-    features_cafe4 = load_android_features_nonspeech_wav_reading('cafe_t4');
-    features_cafe5 = load_android_features_nonspeech_wav_reading('cafe_t5');
+    features_cafe3 = load_android_features_nonspeech_wav_reading('cafe_t3');  % right
+    features_cafe4 = load_android_features_nonspeech_wav_reading('cafe_t4');  % right
+    features_cafe5 = load_android_features_nonspeech_wav_reading('cafe_t5');  % right
     
     % class 4: Music
     % - 'classical'
@@ -120,19 +132,32 @@ function android_frame_feature_HMM_model_main_wav_reading ()
     
     % 2-1: compile the training dataset     
     % class 1: speech (voiced) 
-    features_speech_voiced = [features_s1; features_s2; features_s3; features_s4; 
-        features_s5; features_s6];
-%         features_s7; features_s8; features_s9];
-%     features_speech_voiced = [features_s1; features_s2; features_s3; features_s4];
+%     features_speech_voiced = [features_s1; features_s2; features_s3; features_s4; 
+%         features_s5; features_s6];
+    features_speech_voiced = [
+        features_s1; features_s2; features_s3; 
+        features_s4; features_s5; features_s6;
+%         features_s7; features_s8; features_s9;
+%         features_s10; features_s11; features_s12;
+%         features_s14; features_s15; features_s16;
+        ];
+
    
     % class 2: everything else
-    features_speech_unvoiced = [features_silent1; 
-              features_s1_unvoiced; features_s2_unvoiced; features_s3_unvoiced;
-              features_s4_unvoiced; features_s5_unvoiced; features_s6_unvoiced;             
-              features_w1; features_w2; features_w3; features_w4; features_w5;
-              features_b1; features_b3; features_b4; features_b5;
-              features_cafe1; features_cafe2; features_cafe3; features_cafe4; features_cafe5
-              ];   
+    features_speech_unvoiced = [
+        features_silent1; 
+        features_s1_unvoiced; features_s2_unvoiced; features_s3_unvoiced;
+        features_s4_unvoiced; features_s5_unvoiced; features_s6_unvoiced;    
+%               features_s7_unvoiced; features_s8_unvoiced; features_s9_unvoiced;
+%         features_s10_unvoiced; features_s11_unvoiced; features_s12_unvoiced; 
+%         features_s14_unvoiced; features_s15_unvoiced; features_s16_unvoiced; 
+%         features_w1; features_w2; features_w3; features_w4; features_w5;
+%         features_cafe1; features_cafe2; features_cafe3; features_cafe4;
+%         features_b1; features_b3; features_b4; features_b5;    
+%         features_w1; features_w2;
+        features_cafe1; features_cafe2;
+        features_b1; features_b3;
+        ];   
           
     % class 2: everything else except music
 %     features_speech_unvoiced = [features_silent1; 
@@ -336,6 +361,7 @@ function android_frame_feature_HMM_model_main_wav_reading ()
 %     android_frame_feature_HMM_model_test_wav_reading ('tv_t5');        
 %     android_frame_feature_HMM_model_test_wav_reading ('tv_t6');
     
+    disp('I am done!');
     
     
     
