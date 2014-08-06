@@ -1,6 +1,11 @@
 
 
-data_dir = 'C:\Users\Mi Zhang\Desktop\VoiceDetection\Datasets\labeledData_selected\';
+% wavToCSV_all.m translates all .wav files in the directory into .csv files.
+% NOTE: .wav is the original sound file. .csv is the file will be imported
+% into the mobile phone to calculate the features.
+% @author: Mi Zhang
+
+data_dir = 'D:\Work\Projects\VoiceDetection\Datasets\Datasets_Nexus5\';
 file_list = dir([data_dir '*.wav']);
 
 for i = 1:length(file_list)
@@ -12,4 +17,4 @@ for i = 1:length(file_list)
     
 end
 
-
+disp('I am done');
