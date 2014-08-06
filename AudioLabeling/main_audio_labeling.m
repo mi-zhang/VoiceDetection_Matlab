@@ -1,10 +1,12 @@
-% clear;
-% clear all;
+
+% Manually label the speech frames.
+% @author: Mi Zhang
+
 clc;
     
 % set up dataset path
-dataset_path = 'C:\Users\Mi Zhang\Desktop\VoiceDetection\Datasets\labeledData_selected\';
-audio_file = 'walk_t1';
+dataset_path = 'D:\Work\Projects\VoiceDetection\Datasets\new_dataset\';
+audio_file = 'walk_t3';
 
 % load raw audio data
 file_name = strcat(dataset_path, audio_file, '.wav');
@@ -42,9 +44,9 @@ for window_index = 1:1:total_num_of_windows
     labels_this_window = label_speech_features('signal', data_in_window, 'framesize', framesize, 'framestep', framestep, 'samplingrate', sampling_rate, 'segheight', 50);
     labels_this_window_shift = labels_this_window + (window_index-1)*num_of_framesteps_in_one_window;
     labels = [labels; labels_this_window_shift];
-    saveas(gcf, [audio_file '_snapshot' num2str(window_index)], 'jpg')
-    % saveas(gcf, ['figure_' num2str(window_index)], 'fig')
-    % movefile('audio.wav',['audio_' num2str(window_index) '.wav'])
+    
+    % save spectrograms
+    %saveas(gcf, [audio_file '_snapshot' num2str(window_index)], 'jpg')
     
     % save labels
     dlmwrite(strcat(audio_file, '_labels.txt'), labels_this_window_shift, '-append', 'delimiter',' ');
@@ -67,7 +69,7 @@ else
     end
 end
 
-% save labels
+% save labels in both .txt and .mat formats
 dlmwrite(strcat(audio_file, '_final_label_array.txt'), final_label_array);
 save (strcat(audio_file, '_labels.mat'), 'labels');
 save (strcat(audio_file, '_final_label_array.mat'), 'final_label_array'); 
